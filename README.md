@@ -39,6 +39,7 @@ Crie uma página única para permitir que um professor edite as notas de seus al
 - **Edição em Massa:** Permita a edição em massa de um grupo de alunos
 - **Responsividade Otimizada:** Faça a página ser responsiva e se adaptar a diferentes tamanhos de tela, proporcionando uma experiência consistente em dispositivos variados.
 - **Uso de Frameworks ou Bibliotecas:** Se desejar, você pode optar por utilizar frameworks ou bibliotecas para agilizar o desenvolvimento da interface.
+- **Uso do Django**: Usar django (conforme instrução no arquivo django.md) para desenvolver o teste
 
 ## Envio do Teste
 
