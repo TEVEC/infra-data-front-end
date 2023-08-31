@@ -63,6 +63,6 @@ Follow the prompts and provide any necessary information during the deployment p
 Once the deployment is complete, you will receive a URL where your frontend application is accessible.
 For more detailed instructions on deploying a Next.js application on Vercel, refer to the Vercel documentation.
 
-Visit the website: [https://socialfrontend.vercel.app/](https://socialfrontend.vercel.app/)
+Visit the website: [https://infra-data-front-end.vercel.app/](https://infra-data-front-end.vercel.app/)
 user: teste@gmail.com
 password: 123456
