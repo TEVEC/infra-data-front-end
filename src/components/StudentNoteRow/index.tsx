@@ -1,14 +1,9 @@
 import React from 'react'
 import { studentNoteType } from '@/types/studentNote'
-import {
-  Container,
-  Typography,
-  Card,
-  Stack,
-  Box,
-  TextField,
-  Button
-} from '@mui/material'
+import { Stack, TextField, Button, IconButton } from '@mui/material'
+import { debounce } from '@/utils/debounce'
+import RemoveCircleRoundedIcon from '@mui/icons-material/RemoveCircleRounded'
+
 interface props {
   studentNote: studentNoteType
   handleEditStudent: (id: string, field: string, value: string | number) => void
@@ -44,7 +39,7 @@ const StudentNoteRow: React.FC<props> = ({
           shrink: true
         }}
         value={studentNote.name}
-        onChange={onChangeName}
+        onChange={(e: any) => debounce(onChangeName(e) as any, 500)}
       />
       <TextField
         fullWidth
@@ -55,7 +50,7 @@ const StudentNoteRow: React.FC<props> = ({
         type="number"
         size="small"
         value={studentNote.note}
-        onChange={onChangeNote}
+        onChange={(e: any) => debounce(onChangeNote(e) as any, 500)}
         InputProps={{ inputProps: { min: '0', max: '10', step: '1' } }}
       />
       <Button
@@ -64,10 +59,17 @@ const StudentNoteRow: React.FC<props> = ({
         variant="contained"
         color="error"
         onClick={onDeleteButtonClick}
-        sx={{ maxWidth: '120px' }}
+        sx={{ maxWidth: '120px', display: { xs: 'none ', sm: 'block' } }}
       >
         Eliminar
       </Button>
+      <IconButton
+        onClick={onDeleteButtonClick}
+        color="error"
+        sx={{ display: { xs: 'block', sm: 'none' } }}
+      >
+        <RemoveCircleRoundedIcon />
+      </IconButton>
     </Stack>
   )
 }

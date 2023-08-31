@@ -1,7 +1,14 @@
 import { useFormik } from 'formik'
 import * as yup from 'yup'
-import { TextField, Stack, Box, Button, Divider } from '@mui/material'
-
+import {
+  TextField,
+  Stack,
+  Box,
+  Button,
+  Divider,
+  IconButton
+} from '@mui/material'
+import AddCircleRoundedIcon from '@mui/icons-material/AddCircleRounded'
 const validationSchema = yup.object({
   name: yup.string().required('nome é obrigatório'),
   note: yup
@@ -66,11 +73,22 @@ const AddStudentForm: React.FC<props> = ({ handleAddStudent }) => {
             fullWidth
             variant="contained"
             color="success"
-            sx={{ maxWidth: '120px', maxHeight: '40px' }}
+            sx={{
+              maxWidth: '120px',
+              maxHeight: '40px',
+              display: { xs: 'none ', sm: 'block' }
+            }}
             type="submit"
           >
             Adicionar
           </Button>
+          <IconButton
+            type="submit"
+            color="success"
+            sx={{ display: { xs: 'block', sm: 'none' } }}
+          >
+            <AddCircleRoundedIcon />
+          </IconButton>
         </Stack>
       </form>
     </Box>
