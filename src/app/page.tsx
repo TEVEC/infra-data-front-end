@@ -14,7 +14,6 @@ import { cleanData } from '@/utils/cleanData'
 
 const Home: React.FC = () => {
   const [studentsNote, setStudentsNote] = useState<studentNoteType[]>([])
-  const [selectedFile, setSelectedFile] = useState()
   const fileInputRef = useRef<HTMLInputElement>(null)
   const handleEditStudent = (
     id: string,
@@ -65,8 +64,8 @@ const Home: React.FC = () => {
         const { data } = result
         if (data && data.data && data.data?.length > 0) {
           const cleanedData = cleanData(data.data)
-          setStudentsNote(cleanedData)
-          saveStudentsNote(cleanedData)
+          setStudentsNote(cleanedData as studentNoteType[])
+          saveStudentsNote(cleanedData as studentNoteType[])
         }
       })
       .finally(() => {
