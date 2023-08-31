@@ -1,48 +1,68 @@
-# Teste Prático Simplificado - Desenvolvedor Front-End
+# Frontend Project: Next.js 13 with TypeScript, ESLint, Prettier, and Vercel.
 
-## Instruções
+## Introduction
 
-1. Faça um fork deste repositório.
-2. Complete as tarefas descritas abaixo utilizando HTML, CSS e, se necessário, JavaScript.
-3. Se você optar por implementar os bônus opcionais, adicione-os às suas alterações.
-4. Após concluir o teste, faça um pull request neste repositório com as suas alterações.
+This project is a Frontend application built using Next.js 13 with TypeScript. It incorporates ESLint and Prettier for code formatting and consistency. The application is deployed on Vercel, a cloud platform optimized for frontend projects.
 
-O objetivo deste teste é avaliar suas habilidades de desenvolvimento front-end e sua capacidade de criar uma interface para a edição de notas de uma escola.
+## Getting Started
 
-## Tarefa
+To run the project locally, follow these steps:
 
-Crie uma página única para permitir que um professor edite as notas de seus alunos. A página deve conter as seguintes partes:
+1. Clone the repository to your local machine.
+2. Install the required dependencies by running the following command in the project root:
 
-### Cabeçalho
+```bash
+npm install
+# or
+yarn
+# or
+pnpm install
+```
 
-- Título: "Edição de Notas Escolares"
-- Um botão de "Logout" para sair da plataforma.
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-### Lista de Alunos
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
 
-- Exiba uma lista de alunos com seus nomes e as notas atuais.
-- Cada aluno deve ter um campo de input para a edição da nota.
-- Inclua um botão "Salvar" após cada aluno para confirmar as alterações feitas.
+Start the development server:
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+```
 
-### Rodapé
+The frontend server will be up and running on http://localhost:3000.
 
-- Um rodapé básico com o nome do seu projeto ou empresa.
+## TypeScript and Next.js
+The project uses TypeScript in combination with Next.js, a popular React framework that offers server-side rendering, automatic code splitting, and other features for building efficient and high-performance applications.
 
-## Requisitos Obrigatórios
+## ESLint and Prettier
+ESLint and Prettier are used to ensure consistent code quality and formatting throughout the project. ESLint helps identify and fix problematic patterns, while Prettier automatically formats the code according to predefined rules.
 
-- A nota de cada aluno deve ser exibida em um campo de input para edição.
-- Inclua uma validação simples para garantir que as notas inseridas sejam valores numéricos válidos.
-- Use o CSS para estilizar os elementos de maneira criativa, tornando a interface mais agradável e visualmente atraente.
+## Deploy on Vercel
+The easiest way to deploy your Next.js app is to use the Vercel Platform from the creators of Next.js.
 
-## Bônus (Opcional)
+To deploy your frontend project on Vercel, follow these general steps:
 
-- **Edição em Massa:** Permita a edição em massa de um grupo de alunos
-- **Responsividade Otimizada:** Faça a página ser responsiva e se adaptar a diferentes tamanhos de tela, proporcionando uma experiência consistente em dispositivos variados.
-- **Uso de Frameworks ou Bibliotecas:** Se desejar, você pode optar por utilizar frameworks ou bibliotecas para agilizar o desenvolvimento da interface.
-- **Uso do Django**: Usar django (conforme instrução no arquivo django.md) para desenvolver o teste
+1. Sign up for a Vercel account if you don't have one.
+2. Install the Vercel CLI on your machine.
+```bash
+npm install -g vercel
+# or
+yarn global add vercel
+# or
+pnpm add -g vercel
+```
+3. Navigate to your project directory and run the Vercel deployment command:
+```bash
+vercel
+```
 
-## Envio do Teste
+Follow the prompts and provide any necessary information during the deployment process.
+Once the deployment is complete, you will receive a URL where your frontend application is accessible.
+For more detailed instructions on deploying a Next.js application on Vercel, refer to the Vercel documentation.
 
-Após concluir a tarefa, faça um pull request neste repositório com as suas alterações. Se desejar, você pode incluir um pequeno README descrevendo suas decisões de design e qualquer outra informação relevante.
-
-Boa sorte e divirta-se desenvolvendo!
+Visit the website: [https://infra-data-front-end.vercel.app/](https://infra-data-front-end.vercel.app/)
+user: teste@gmail.com
+password: 123456
