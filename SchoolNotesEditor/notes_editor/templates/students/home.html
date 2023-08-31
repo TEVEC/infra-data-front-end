@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Edição de notas escolares</title>
+</head>
+<body>
+<header>
+        <h2 style="text-align: center;">Edição de notas escolares</h2>
+</header>
+<main style="display: flex; align-items: center; justify-content: center; flex-direction: column;" class="container">
+    <form id="student-form" method="post">
+        {% csrf_token %}
+        <div>
+            <input name="name" id="name-edit" class="form-control-sm" type="text" placeholder="nome do aluno">
+            <input name="note" id="note-edit" class="form-control-sm" type="text" placeholder="nota" min="0" max="5">
+            <input type="hidden" name="id" id="student-id-edit"> <!-- Add hidden input for student ID -->
+            <button id="save-button" class="form-control-sm">Salvar</button>
+        </div>
+    </form>
+        </div>
+            <table style="margin-top: 8rem;" class="table table-bordered table-striped">
+                <tr>
+                    <th>id</th>
+                    <th>nome</th>
+                    <th>nota</th>
+                    <th>ação</th>
+                </tr>
+                {% for student in students %}
+                <tr data-student-id="{{student.id}}">
+                    <td>{{student.id}}</td>
+                    <td data-field="name">{{student.name}}</td>
+                    <td data-field="note">{{student.note}}</td>
+                    <td>
+                        <button class="edit-button" data-student-id="{{student.id}}">Editar</button>
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
+</main>
+<script>
+ const form = document.getElementById('student-form');
+    const saveButton = document.getElementById('save-button');
+    const nameEditInput = document.getElementById('name-edit');
+    const noteEditInput = document.getElementById('note-edit');
+    const studentIdInput = document.getElementById('student-id-edit'); // Get the hidden input element
+
+    function populateForm(studentId, studentName, studentNote) {
+        studentIdInput.value = studentId; // Set the value of the hidden input
+        nameEditInput.value = studentName;
+        noteEditInput.value = studentNote;
+    }
+
+    const editButtons = document.querySelectorAll('.edit-button');
+    editButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const studentId = button.getAttribute('data-student-id');
+            const studentRow = document.querySelector(`tr[data-student-id="${studentId}"]`);
+            const studentNameCell = studentRow.querySelector('td[data-field="name"]');
+            const studentNoteCell = studentRow.querySelector('td[data-field="note"]');
+            const studentName = studentNameCell.textContent;
+            const studentNote = studentNoteCell.textContent.replace(',', '.');
+            populateForm(studentId, studentName, studentNote) 
+        });
+    });
+
+    saveButton.addEventListener('click', function(e) {
+        e.preventDefault();
+        form.submit();
+    });
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html>
